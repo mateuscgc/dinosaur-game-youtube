@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" onclick="pular()">
+<html lang="en" onclick="pular(event)" onkeypress="executaAcao(event)" onkeydown="executaAcao(event)">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +8,13 @@
 </head>
 <body>
     <div id="game">
-        <div id="personagem"></div>
+        <div id="retangulo"></div>
         <div id="quadrado"></div>
     </div>
 </body>
-<script src="script.js"></script>
+<script src="js/script.js"></script>
+<script src="js/jogo.js"></script>
+<script>
+	jogo();
+</script>
 </html>

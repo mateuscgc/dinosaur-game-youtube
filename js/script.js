@@ -1,6 +1,3 @@
-let personagem = document.querySelector('#personagem')
-let quadrado = document.querySelector('#quadrado')
-
 function pular(){
     if(personagem.classList != 'animar'){
         personagem.classList.add('animar')
@@ -28,3 +25,18 @@ var testarColisao = setInterval( function(){
     
 
 }, 10)
+
+function criarPersonagem() {
+    return document.querySelector('#retangulo');
+}
+
+
+function criarObstaculo() {
+    return document.querySelector('#quadrado');
+}
+
+function adicionarMovimentoParaEsquerda(objeto) {
+    objeto.classList.add('movimento_esquerda')
+}
+
+

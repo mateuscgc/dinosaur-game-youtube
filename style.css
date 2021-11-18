@@ -9,7 +9,7 @@
     border: 1px solid black;
 }
 
-#personagem{
+#retangulo{
     width: 20px;
     height: 50px;
     background-color: red;
@@ -18,10 +18,10 @@
 }
 
 .animar{
-    animation: personagem 500ms infinite;
+    animation: retangulo 500ms infinite;
 }
 
-@keyframes personagem{
+@keyframes retangulo{
     0%{top: 150px;}
     30%{top: 100px;}
     70%{top: 100px;}
@@ -35,10 +35,13 @@
     position: relative;   
     top: 130px;
     left: 480px;
-    animation: quadrado 1s infinite linear;
 }
 
-@keyframes quadrado{
+.movimento_esquerda {
+    animation: movimentoEsquerda 1s infinite linear;
+}
+
+@keyframes movimentoEsquerda{
     0%{left: 480px;}
     100%{left: -40px;}
 }
