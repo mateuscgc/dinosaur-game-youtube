@@ -4,7 +4,7 @@
 function jogo() {
 	// Preparar o jogo.
 	jogo = document.getElementById("game");
-	
+
 	// - Preparar o personagem.
 	personagem = criarPersonagem();
 	adicionarElementoAoJogo(jogo, personagem);
