@@ -11,16 +11,26 @@ function jogo() {
 
 	// Determina que quando uma tecla for pressioda, função executaAcao deve ser chamada.
 	document.addEventListener("keydown", function(e){executaAcao(e, personagem)})
+	document.addEventListener("keyup", function(e){terminaAcao(e, personagem)})
 
 	// - Preparar o obstaculo.
-	obstaculo = criarObstaculo();
+	obstaculo = criarObstaculo(20);
 	adicionarElementoAoJogo(jogo, obstaculo);
 	adicionarMovimentoParaEsquerda(obstaculo);
 
+	setInterval(function () {
+	    mudarTamanhoDoObstaculo(obstaculo, Math.floor(Math.random() * 41) + 20);
+	    mudarAlturaDoObstaculo(obstaculo, Math.floor(Math.random() * 2)*35);
+	    atualizarPontuacao(pontuacao);
+	}, 1000);
+
 	// Preparar teste de colisão entre o jogador e os obstáculos.
 	setInterval(function () {
-	    testarColisao(personagem, obstaculo, gameOver);
+	    testarColisao(personagem, obstaculo, function(p, o){gameOver(p, o, pontuacao)});
 	}, 10);
+
+	pontuacao = criarPontucao();
+	adicionarElementoAoJogo(jogo, pontuacao);
 }
 
 // Função executada quando qualquer tecla é pressionada.
@@ -29,6 +39,18 @@ function executaAcao(e, elemento) {
 		case 'Space':
 		case 'ArrowUp':
 			pular(elemento);
+			break;
+		case 'ArrowDown':
+			abaixar(elemento);
+			break;
+	} 
+}
+
+// Função executada quando qualquer tecla é solta.
+function terminaAcao(e, elemento) {
+	switch(e.code) {
+		case 'ArrowDown':
+			levantar(elemento);
 			break;
 	}
 }

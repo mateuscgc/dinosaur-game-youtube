@@ -10,7 +10,7 @@ function jogo() {
 	adicionarElementoAoJogo(jogo, personagem);
 
 	// - Preparar o obstaculo.
-	obstaculo = criarObstaculo();
+	obstaculo = criarObstaculo(20);
 	adicionarElementoAoJogo(jogo, obstaculo);
 }
 

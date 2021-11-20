@@ -10,9 +10,14 @@ function jogo() {
 	adicionarElementoAoJogo(jogo, personagem);
 
 	// - Preparar o obstaculo.
-	obstaculo = criarObstaculo();
+	obstaculo = criarObstaculo(20);
 	adicionarElementoAoJogo(jogo, obstaculo);
 	adicionarMovimentoParaEsquerda(obstaculo);
+
+	// Preparar teste de colisão entre o jogador e os obstáculos.
+	setInterval(function () {
+	    testarColisao(personagem, obstaculo, gameOver);
+	}, 10);
 }
 
 // Chama função para iniciar o jogo.

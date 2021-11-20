@@ -4,7 +4,7 @@
 function jogo() {
 	// Preparar o jogo.
 	jogo = document.getElementById("game");
-	
+
 	// - Preparar o personagem.
 	personagem = criarPersonagem();
 	adicionarElementoAoJogo(jogo, personagem);
@@ -26,7 +26,7 @@ function jogo() {
 
 	// Preparar teste de colisão entre o jogador e os obstáculos.
 	setInterval(function () {
-	    testarColisao(personagem, obstaculo, function(p, o){gameOver(p, o, pontuacao)});
+	    testarColisao(personagem, obstaculo, gameOver);
 	}, 10);
 
 	pontuacao = criarPontucao();
@@ -43,7 +43,7 @@ function executaAcao(e, elemento) {
 		case 'ArrowDown':
 			abaixar(elemento);
 			break;
-	}
+	} 
 }
 
 // Função executada quando qualquer tecla é solta.

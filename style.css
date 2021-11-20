@@ -13,12 +13,21 @@
     width: 20px;
     height: 50px;
     background-color: red;
-    position: relative;
+    position: absolute;
     top: 150px;
     left: 20px;
 }
 
-.animar{
+.abaixado {
+    height: 25px !important;
+    top:  175px !important;
+}
+
+.agaixado {
+    height: 25px !important;
+}
+
+.pulando{
     animation: personagem 500ms infinite;
 }
 
@@ -30,12 +39,10 @@
 }
 
 #obstaculo{
-    width: 20px;
     height: 20px;
     background-color: blue;
-    position: relative;   
-    top: 130px;
-    left: 480px;
+    position: absolute;
+    top: 180px;
 }
 
 .movimento_esquerda {
@@ -45,4 +52,16 @@
 @keyframes movimentoEsquerda{
     0%{left: 480px;}
     100%{left: -40px;}
+}
+
+
+#pontuacao {
+    font-size: 30px;
+    padding: 5px;
+    margin-left: 440px;
+    margin-top: 10px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border: 2px solid black;
 }
