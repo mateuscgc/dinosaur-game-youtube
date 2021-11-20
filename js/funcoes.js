@@ -95,12 +95,15 @@ function testarColisao(elemento1, elemento2, funcaoDeGameOver) {
     t2 = elemento2.offsetTop;
     b2 = elemento2.offsetTop + elemento2.offsetHeight;
 
-    if((l2 < r1 && l2 > l1) || (r2 < r1 && r2 > l1) || (l2 < l1 && r2 > r1)) {
-        if((t2 < b1 && t2 > t1) || (b2 < b1 && b2 > t1) || (t2 < t1 && b2 > b1)) {
+    if((l2 < r1 && l2 > l1) || (r2 < r1 && r2 > l1) || (l2 < l1 && r2 > r1)) { // Eixo X
+        if((t2 < b1 && t2 > t1) || (b2 < b1 && b2 > t1) || (t2 < t1 && b2 > b1)) { // Eixo Y
             console.log('colidiu');
             funcaoDeGameOver(elemento1, elemento2);
+            return true;
         }
     }
+    console.log('não colidiu');
+    return false;
 }
 
 function mudarTamanhoDoObstaculo(obstaculo, novaLargura) {
