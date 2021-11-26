@@ -26,7 +26,7 @@ function jogo() {
 
 	// Preparar teste de colisão entre o jogador e os obstáculos.
 	setInterval(function () {
-	    testarColisao(personagem, obstaculo, function(p, o){gameOver(p, o, pontuacao)});
+	    testarColisao(personagem, obstaculo);
 	}, 10);
 
 	pontuacao = criarPontucao();

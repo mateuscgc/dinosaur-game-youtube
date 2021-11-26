@@ -35,6 +35,7 @@ function executaAcao(e, elemento) {
 		case 'ArrowUp':
 			pular(elemento);
 			break;
+		//MUDOU AQUI
 		case 'ArrowDown':
 			abaixar(elemento);
 			break;

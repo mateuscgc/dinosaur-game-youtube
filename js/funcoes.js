@@ -1,18 +1,6 @@
-function gameOver(jogador, obstaculo, pontuacao) {
-    // obstaculo.style.animation = 'none';
-    // elemento2.style.display = 'none';
+function gameOver() {
     alert('Você perdeu!');
-
-    levantar(jogador);
-
-    if (pontuacao != null) {
-        pontuacao.innerText = '-1';
-    }
-
-    // trigger reflow 
-    // obstaculo.offsetHeight; 
-    
-    // obstaculo.style.animation = null; 
+    document.location.reload(true)
 }
 
 function criarPersonagem() {
@@ -83,7 +71,7 @@ function levantar(elemento){
 }
 
 
-function testarColisao(elemento1, elemento2, funcaoDeGameOver) {
+function testarColisao(elemento1, elemento2) {
 
     l1 = elemento1.offsetLeft;
     r1 = elemento1.offsetLeft + elemento1.offsetWidth;
@@ -98,7 +86,8 @@ function testarColisao(elemento1, elemento2, funcaoDeGameOver) {
     if((l2 < r1 && l2 > l1) || (r2 < r1 && r2 > l1) || (l2 < l1 && r2 > r1)) {
         if((t2 < b1 && t2 > t1) || (b2 < b1 && b2 > t1) || (t2 < t1 && b2 > b1)) {
             console.log('colidiu');
-            funcaoDeGameOver(elemento1, elemento2);
+            gameOver();
+            return true;
         }
     }
 }

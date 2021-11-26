@@ -19,7 +19,8 @@ function jogo() {
 
 	setInterval(function () {
 	    mudarTamanhoDoObstaculo(obstaculo, Math.floor(Math.random() * 41) + 20);
-	    mudarAlturaDoObstaculo(obstaculo, Math.floor(Math.random() * 2)*35);
+	    //MUDOU AQUI
+		mudarAlturaDoObstaculo(obstaculo, Math.floor(Math.random() * 2)*35);
 	}, 1000);
 
 	// Preparar teste de colisão entre o jogador e os obstáculos.

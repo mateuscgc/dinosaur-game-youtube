@@ -16,7 +16,7 @@ function jogo() {
 	obstaculo = criarObstaculo(20);
 	adicionarElementoAoJogo(jogo, obstaculo);
 	adicionarMovimentoParaEsquerda(obstaculo);
-
+  //MUDOU AQUIIII
 	setInterval(function () {
 	    mudarTamanhoDoObstaculo(obstaculo, Math.floor(Math.random() * 41) + 20);
 	}, 1000);
