@@ -12,7 +12,7 @@ function jogo() {
 	adicionarMovimentoParaEsquerda(zezinAsteroide);
 
 	setInterval(function(){
-		testarColisao(personagem, zezinAsteroide, gameOver)}, 20)
+		testarColisao(personagem, zezinAsteroide)}, 20)
 
 }
 
