@@ -65,3 +65,15 @@
     text-align: center;
     border: 2px solid black;
 }
+
+#pontuacaoMaxima {
+    color: blue;
+    font-size: 30px;
+    padding: 5px;
+    margin-left: 440px;
+    margin-top: 10px;
+    width: 35px;
+    height: 35px;
+    text-align: center;
+    border: 2px solid blue;
+}

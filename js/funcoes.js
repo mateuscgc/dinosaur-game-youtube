@@ -1,5 +1,12 @@
-function gameOver() {
+function gameOver(pontuacao) {
     alert('Você perdeu!');
+    var pontuacaoMaxima = parseInt(localStorage.getItem("pontuacaoMaxima"));
+    var pontuacaoAtual = parseInt(pontuacao.innerText);
+
+    if(pontuacaoMaxima < pontuacaoAtual){
+        localStorage.setItem("pontuacaoMaxima", pontuacaoAtual);
+    }
+
     document.location.reload(true)
 }
 
@@ -21,6 +28,13 @@ function criarPontucao() {
     var novaPontuacao = document.createElement('div');
     novaPontuacao.innerText = '0';
     novaPontuacao.setAttribute("id", "pontuacao");
+    return novaPontuacao;
+}
+
+function criarPontucaoMaxima() {
+    var novaPontuacao = document.createElement('div');
+    novaPontuacao.innerText = '0';
+    novaPontuacao.setAttribute("id", "pontuacaoMaxima");
     return novaPontuacao;
 }
 
@@ -71,7 +85,7 @@ function levantar(elemento){
 }
 
 
-function testarColisao(elemento1, elemento2) {
+function testarColisao(elemento1, elemento2, pontuacao) {
 
     l1 = elemento1.offsetLeft;
     r1 = elemento1.offsetLeft + elemento1.offsetWidth;
@@ -86,7 +100,7 @@ function testarColisao(elemento1, elemento2) {
     if((l2 < r1 && l2 > l1) || (r2 < r1 && r2 > l1) || (l2 < l1 && r2 > r1)) {
         if((t2 < b1 && t2 > t1) || (b2 < b1 && b2 > t1) || (t2 < t1 && b2 > b1)) {
             console.log('colidiu');
-            gameOver();
+            gameOver(pontuacao);
             return true;
         }
     }
@@ -103,4 +117,14 @@ function mudarAlturaDoObstaculo(obstaculo, novaAltura) {
 
 function atualizarPontuacao(pontuacao) {
     pontuacao.innerText = parseInt(pontuacao.innerText) + 1;
+}
+
+function atualizarPontuacaoMaxima(pontuacaoMaxima) {
+    var cookie = localStorage.getItem("pontuacaoMaxima"); 
+    if(parseInt(cookie) > 0){
+        pontuacaoMaxima.innerText = parseInt(cookie);
+    }else{
+        pontuacaoMaxima.innerText = 0;
+        localStorage.setItem("pontuacaoMaxima", 0);
+    }
 }
