@@ -1,13 +1,18 @@
-function gameOver(pontuacao) {
+function gameOver(personagem, pontuacaoHUD, pontuacaoMaximaHUD) {
+    
     alert('Você perdeu!');
-    var pontuacaoMaxima = parseInt(localStorage.getItem("pontuacaoMaxima"));
-    var pontuacaoAtual = parseInt(pontuacao.innerText);
 
+    levantar(personagem);
+
+    var pontuacaoMaxima = parseInt(localStorage.getItem("pontuacaoMaxima"));
+    var pontuacaoAtual = parseInt(pontuacaoHUD.innerText);
     if(pontuacaoMaxima < pontuacaoAtual){
         localStorage.setItem("pontuacaoMaxima", pontuacaoAtual);
     }
-
-    document.location.reload(true)
+    atualizarPontuacaoMaxima(pontuacaoMaximaHUD)
+    if (pontuacaoHUD != null) {
+        pontuacaoHUD.innerText = '-1';
+    }
 }
 
 function criarPersonagem() {
@@ -27,14 +32,14 @@ function criarObstaculo(largura) {
 function criarPontucao() {
     var novaPontuacao = document.createElement('div');
     novaPontuacao.innerText = '0';
-    novaPontuacao.setAttribute("id", "pontuacao");
+    novaPontuacao.setAttribute("id", "id-pontuacao");
     return novaPontuacao;
 }
 
 function criarPontucaoMaxima() {
     var novaPontuacao = document.createElement('div');
     novaPontuacao.innerText = '0';
-    novaPontuacao.setAttribute("id", "pontuacaoMaxima");
+    novaPontuacao.setAttribute("id", "id-pontuacaoMaxima");
     return novaPontuacao;
 }
 
@@ -85,7 +90,7 @@ function levantar(elemento){
 }
 
 
-function testarColisao(elemento1, elemento2, pontuacao) {
+function testarColisao(elemento1, elemento2, funcaoDeGameOver) {
 
     l1 = elemento1.offsetLeft;
     r1 = elemento1.offsetLeft + elemento1.offsetWidth;
@@ -99,8 +104,7 @@ function testarColisao(elemento1, elemento2, pontuacao) {
 
     if((l2 < r1 && l2 > l1) || (r2 < r1 && r2 > l1) || (l2 < l1 && r2 > r1)) {
         if((t2 < b1 && t2 > t1) || (b2 < b1 && b2 > t1) || (t2 < t1 && b2 > b1)) {
-            console.log('colidiu');
-            gameOver(pontuacao);
+            funcaoDeGameOver(elemento1, elemento2);
             return true;
         }
     }
@@ -108,7 +112,7 @@ function testarColisao(elemento1, elemento2, pontuacao) {
 
 function mudarTamanhoDoObstaculo(obstaculo, novaLargura) {
     obstaculo.style.width = novaLargura+'px';
-    obstaculo.style.left=(500 - novaLargura)+'px';
+    obstaculo.style.left = (500 - novaLargura)+'px';
 }
 
 function mudarAlturaDoObstaculo(obstaculo, novaAltura) {
@@ -125,6 +129,5 @@ function atualizarPontuacaoMaxima(pontuacaoMaxima) {
         pontuacaoMaxima.innerText = parseInt(cookie);
     }else{
         pontuacaoMaxima.innerText = 0;
-        localStorage.setItem("pontuacaoMaxima", 0);
     }
 }
