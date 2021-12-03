@@ -24,7 +24,7 @@ function jogo() {
 
 	// Preparar teste de colisão entre o jogador e os obstáculos.
 	setInterval(function () {
-	    testarColisao(personagem, obstaculo, gameOver);
+	    testarColisao(personagem, obstaculo);
 	}, 10);
 }
 
@@ -35,6 +35,7 @@ function executaAcao(e, elemento) {
 		case 'ArrowUp':
 			pular(elemento);
 			break;
+		//MUDOU AQUI
 		case 'ArrowDown':
 			abaixar(elemento);
 			break;

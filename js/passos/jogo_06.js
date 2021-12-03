@@ -16,14 +16,14 @@ function jogo() {
 	obstaculo = criarObstaculo(20);
 	adicionarElementoAoJogo(jogo, obstaculo);
 	adicionarMovimentoParaEsquerda(obstaculo);
-
+  //MUDOU AQUIIII
 	setInterval(function () {
 	    mudarTamanhoDoObstaculo(obstaculo, Math.floor(Math.random() * 41) + 20);
 	}, 1000);
 
 	// Preparar teste de colisão entre o jogador e os obstáculos.
 	setInterval(function () {
-	    testarColisao(personagem, obstaculo, gameOver);
+	    testarColisao(personagem, obstaculo);
 	}, 10);
 }
 

@@ -11,6 +11,7 @@ function jogo() {
 
 	// Determina que quando uma tecla for pressioda, função executaAcao deve ser chamada.
 	document.addEventListener("keydown", function(e){executaAcao(e, personagem)})
+	//MUDOU AQUI
 	document.addEventListener("keyup", function(e){terminaAcao(e, personagem)})
 
 	// - Preparar o obstaculo.
@@ -25,7 +26,7 @@ function jogo() {
 
 	// Preparar teste de colisão entre o jogador e os obstáculos.
 	setInterval(function () {
-	    testarColisao(personagem, obstaculo, gameOver);
+	    testarColisao(personagem, obstaculo);
 	}, 10);
 }
 
@@ -41,7 +42,7 @@ function executaAcao(e, elemento) {
 			break;
 	} 
 }
-
+//MUDOU AQUI
 // Função executada quando qualquer tecla é solta.
 function terminaAcao(e, elemento) {
 	switch(e.code) {

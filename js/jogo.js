@@ -24,13 +24,18 @@ function jogo() {
 	    atualizarPontuacao(pontuacao);
 	}, 1000);
 
-	// Preparar teste de colisão entre o jogador e os obstáculos.
-	setInterval(function () {
-	    testarColisao(personagem, obstaculo, function(p, o){gameOver(p, o, pontuacao)});
-	}, 10);
 
 	pontuacao = criarPontucao();
 	adicionarElementoAoJogo(jogo, pontuacao);
+
+	pontuacaoMaxima = criarPontucaoMaxima();
+	adicionarElementoAoJogo(jogo, pontuacaoMaxima);
+	atualizarPontuacaoMaxima(pontuacaoMaxima);
+
+	// Preparar teste de colisão entre o jogador e os obstáculos.
+	setInterval(function () {
+	    testarColisao(personagem, obstaculo, function(p, o){gameOver(p, pontuacao, pontuacaoMaxima)});
+	}, 10);
 }
 
 // Função executada quando qualquer tecla é pressionada.

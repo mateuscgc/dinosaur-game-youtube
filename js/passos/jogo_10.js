@@ -21,14 +21,15 @@ function jogo() {
 	setInterval(function () {
 	    mudarTamanhoDoObstaculo(obstaculo, Math.floor(Math.random() * 41) + 20);
 	    mudarAlturaDoObstaculo(obstaculo, Math.floor(Math.random() * 2)*35);
-	    atualizarPontuacao(pontuacao);
+	   //MUDOU AQUI
+		atualizarPontuacao(pontuacao);
 	}, 1000);
 
 	// Preparar teste de colisão entre o jogador e os obstáculos.
 	setInterval(function () {
-	    testarColisao(personagem, obstaculo, gameOver);
+	    testarColisao(personagem, obstaculo);
 	}, 10);
-
+	//MUDOU AQUI
 	pontuacao = criarPontucao();
 	adicionarElementoAoJogo(jogo, pontuacao);
 }

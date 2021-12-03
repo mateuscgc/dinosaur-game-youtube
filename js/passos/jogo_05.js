@@ -9,7 +9,7 @@ function jogo() {
 	personagem = criarPersonagem();
 	adicionarElementoAoJogo(jogo, personagem);
 
-	// Determina que quando uma tecla for pressioda, função executaAcao deve ser chamada.
+	// -----MUDOU // Determina que quando uma tecla for pressioda, função executaAcao deve ser chamada.
 	document.addEventListener("keydown", function(e){executaAcao(e, personagem)})
 
 	// - Preparar o obstaculo.
@@ -19,11 +19,11 @@ function jogo() {
 
 	// Preparar teste de colisão entre o jogador e os obstáculos.
 	setInterval(function () {
-	    testarColisao(personagem, obstaculo, gameOver);
+	    testarColisao(personagem, obstaculo);
 	}, 10);
 }
 
-// Função executada quando qualquer tecla é pressionada.
+// -----MUDOU // Função executada quando qualquer tecla é pressionada.
 function executaAcao(e, elemento) {
 	switch(e.code) {
 		case 'Space':
